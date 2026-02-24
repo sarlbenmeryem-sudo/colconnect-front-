@@ -1,0 +1,30 @@
+
+# ===== ColConnect: generated backups & patch scripts =====
+*.bak
+*.bak.*
+*.backup
+*~ 
+*.tmp
+*.log
+
+# Patch scripts (generated)
+patch_*.sh
+*_patch_*.sh
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Python venv / cache (if any)
+.venv/
+__pycache__/
+*.pyc
+
+# Node (if any)
+node_modules/
+dist/
+build/
