@@ -528,7 +528,7 @@
   border-top-color: var(--arb-accent);
   border-radius: 50%;
   animation: arb-spin 0.8s linear infinite;
-  margin-right: 10px;
+  margin-left: 10px;
 }
 
 @keyframes arb-spin {
@@ -601,7 +601,7 @@
 .arb-exec-open-btn {
   position: absolute;
   top: 10px;
-  right: 10px;
+  left: 10px;
   background: rgba(201,162,39,0.15);
   border: 1px solid rgba(201,162,39,0.35);
   color: var(--arb-accent);

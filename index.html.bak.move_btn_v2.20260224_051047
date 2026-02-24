@@ -348,8 +348,6 @@
       <span class="arb-exec-indicator status-warning"></span>
       <h3 class="arb-exec-title">Arbitrage Exécutif</h3>
     </div>
-    <button id="arbOpenModule" class="arb-exec-open-btn" title="Ouvrir le module Arbitrage complet">↗ Ouvrir le module</button>
-
     <div class="arb-exec-badges">
       <span class="arb-exec-badge arb-exec-badge-impact" id="arb-impact">Impact : -</span>
       <span class="arb-exec-badge arb-exec-badge-urgence" id="arb-urgence">Urgence : -</span>

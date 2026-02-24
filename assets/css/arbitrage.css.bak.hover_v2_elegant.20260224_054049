@@ -287,119 +287,21 @@
   transform: translateX(85px);
 }
 
-/* ===== CC_ARB_HOVER_PREMIUM_V2 : hover élégant (ColConnect) ===== */
+
+/* ===== Hover Premium Bouton Arbitrage ===== */
+
 #arbOpenModule{
-  position: absolute; /* garde ton layout actuel */
-  transform: translateY(-50%);
-  transition:
-    transform 220ms cubic-bezier(.2,.8,.2,1),
-    box-shadow 220ms cubic-bezier(.2,.8,.2,1),
-    filter 220ms cubic-bezier(.2,.8,.2,1),
-    background-color 220ms cubic-bezier(.2,.8,.2,1),
-    border-color 220ms cubic-bezier(.2,.8,.2,1);
-  will-change: transform, box-shadow, filter;
+  transition: all .25s ease;
 }
 
-/* micro glow discret + élévation très légère */
 #arbOpenModule:hover{
-  transform: translateY(-50%) translateY(-1.5px);
-  box-shadow: 0 10px 26px rgba(0,0,0,0.34);
-  filter: brightness(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+  background: linear-gradient(135deg,#e3b341,#f5d06f);
+  color: #0b1623;
 }
 
-/* animation premium du pictogramme ↗ (subtile) */
-#arbOpenModule:hover::before{
-  transform: translateX(2px);
-  opacity: .95;
-}
-
-#arbOpenModule::before{
-  content: "↗";
-  display: inline-block;
-  margin-right: 8px;
-  transition: transform 220ms cubic-bezier(.2,.8,.2,1), opacity 220ms cubic-bezier(.2,.8,.2,1);
-  opacity: .85;
-}
-
-/* état actif (clic) */
 #arbOpenModule:active{
-  transform: translateY(-50%) translateY(0px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.22);
-  filter: brightness(1.0);
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
 }
-
-/* accessibilité clavier */
-#arbOpenModule:focus-visible{
-  outline: none;
-  box-shadow:
-    0 10px 26px rgba(0,0,0,0.34),
-    0 0 0 3px rgba(227,179,65,0.28);
-}
-
-/* ===== CC_ARB_BADGE_DYNAMIC_V1 : couleurs dynamiques Impact/Urgence/Horizon ===== */
-.arb-exec-badge{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  white-space: nowrap;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(255,255,255,.06);
-  color: rgba(255,255,255,.90);
-  border-radius: 999px;
-  padding: 6px 10px;
-  font-weight: 700;
-  font-size: 12px;
-  transition: transform 180ms cubic-bezier(.2,.8,.2,1), box-shadow 180ms cubic-bezier(.2,.8,.2,1), filter 180ms cubic-bezier(.2,.8,.2,1);
-}
-
-/* petit dot */
-.arb-exec-badge::before{
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.35);
-  box-shadow: 0 0 0 2px rgba(0,0,0,.12);
-}
-
-/* état N/A (aucun projet arbitré) */
-.arb-exec-badge[data-level="na"]{
-  opacity: .78;
-}
-
-/* palettes ColConnect (sobres) */
-.arb-exec-badge[data-level="low"]{
-  border-color: rgba(160,170,190,.35);
-}
-.arb-exec-badge[data-level="low"]::before{
-  background: rgba(160,170,190,.95);
-}
-
-.arb-exec-badge[data-level="mid"]{
-  border-color: rgba(80,150,255,.45);
-}
-.arb-exec-badge[data-level="mid"]::before{
-  background: rgba(80,150,255,.98);
-}
-
-.arb-exec-badge[data-level="high"]{
-  border-color: rgba(227,179,65,.55);
-}
-.arb-exec-badge[data-level="high"]::before{
-  background: rgba(227,179,65,.98);
-}
-
-.arb-exec-badge[data-level="crit"]{
-  border-color: rgba(255,80,80,.55);
-}
-.arb-exec-badge[data-level="crit"]::before{
-  background: rgba(255,80,80,.98);
-}
-
-/* micro-hover premium (très discret) */
-.arb-exec-badge:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 10px 22px rgba(0,0,0,.22);
-  filter: brightness(1.04);
-}
-

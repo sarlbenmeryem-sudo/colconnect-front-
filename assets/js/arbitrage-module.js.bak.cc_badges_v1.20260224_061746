@@ -47,57 +47,7 @@ console.log('[Arbitrage Module] File loaded!');
     return document.getElementById(id);
   }
 
-  
-// ===== CC_ARB_BADGE_JS_V1 : mapping niveaux + labels =====
-function ccNum(val) {
-  if (val === null || val === undefined) return null;
-  const str = String(val);
-  const m = str.match(/-?\d+(\.\d+)?/);
-  return m ? Number(m[0]) : null;
-}
-
-function ccLevelImpact(v){
-  if (v === null || Number.isNaN(v)) return ['na','N/A'];
-  if (v < 40) return ['low','Faible'];
-  if (v < 60) return ['mid','Utile'];
-  if (v < 80) return ['high','Fort'];
-  return ['high','Transformation'];
-}
-
-function ccLevelUrgence(v){
-  if (v === null || Number.isNaN(v)) return ['na','N/A'];
-  if (v < 40) return ['low','Faible'];
-  if (v < 60) return ['mid','À planifier'];
-  if (v < 80) return ['high','Prioritaire'];
-  return ['crit','Critique'];
-}
-
-function ccLevelHorizonDays(days){
-  if (days === null || Number.isNaN(days)) return ['na','N/A'];
-  if (days <= 7) return ['crit', `${days}j`];
-  if (days <= 30) return ['high', `${days}j`];
-  if (days <= 90) return ['mid', `${days}j`];
-  return ['low', `${days}j`];
-}
-
-function ccParseDays(h){
-  if (h === null || h === undefined) return null;
-  const str = String(h).toLowerCase();
-  const m = str.match(/(\d+)\s*(j|jour|jours|d)/);
-  if (m) return Number(m[1]);
-  // si format "7 days"
-  const m2 = str.match(/(\d+)\s*day/);
-  if (m2) return Number(m2[1]);
-  return null;
-}
-
-function ccApplyBadge(el, level, title){
-  if (!el) return;
-  el.setAttribute('data-level', level);
-  el.setAttribute('title', title);
-}
-// ===== END_CC_ARB_BADGE_JS_V1
-function escapeHtml(s) {
+  function escapeHtml(s) {
     return String(s ?? "")
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
@@ -459,20 +409,7 @@ function escapeHtml(s) {
     if (urgenceBadge) urgenceBadge.textContent = `Urgence : ${status.urgence || '-'}`;
     if (horizonBadge) horizonBadge.textContent = `Horizon : ${status.horizon || '7 jours'}`;
 
-    
-    // --- CC dynamic badge levels ---
-    const impactNum = ccNum(status.impact);
-    const urgNum = ccNum(status.urgence);
-    const hDays = ccParseDays(status.horizon || '7 jours');
-
-    const [li, ltxt] = ccLevelImpact(impactNum);
-    const [lu, utxt] = ccLevelUrgence(urgNum);
-    const [lh, htxt] = ccLevelHorizonDays(hDays);
-
-    ccApplyBadge(impactBadge, li, (impactNum === null ? "Impact : N/A (aucun projet arbitré)" : `Impact : ${impactNum} (${ltxt})`));
-    ccApplyBadge(urgenceBadge, lu, (urgNum === null ? "Urgence : N/A (aucun projet arbitré)" : `Urgence : ${urgNum} (${utxt})`));
-    ccApplyBadge(horizonBadge, lh, (hDays === null ? "Horizon : N/A" : `Horizon : ${htxt}`));
-// Contenu des cartes
+    // Contenu des cartes
     if ($('arb-decision')) $('arb-decision').textContent = status.decision || '-';
     if ($('arb-pourquoi')) $('arb-pourquoi').textContent = status.pourquoi || '-';
     
