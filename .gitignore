@@ -30,6 +30,6 @@ node_modules/
 dist/
 build/
 
-# --- Optional: local env files ---
+# --- Local env files ---
 .env
 .env.*
