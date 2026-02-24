@@ -1,17 +1,18 @@
+# =========================
+# ColConnect Front - .gitignore (optimized)
+# =========================
 
-# ===== ColConnect: generated backups & patch scripts =====
+# --- Generated backups & patch scripts ---
 *.bak
 *.bak.*
 *.backup
-*~ 
+*~
 *.tmp
 *.log
-
-# Patch scripts (generated)
 patch_*.sh
 *_patch_*.sh
 
-# OS / Editor
+# --- OS / editor ---
 .DS_Store
 Thumbs.db
 .idea/
@@ -19,12 +20,16 @@ Thumbs.db
 *.swp
 *.swo
 
-# Python venv / cache (if any)
+# --- Python (if any tooling) ---
 .venv/
 __pycache__/
 *.pyc
 
-# Node (if any)
+# --- Node (if any) ---
 node_modules/
 dist/
 build/
+
+# --- Optional: local env files ---
+.env
+.env.*
